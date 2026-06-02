@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nova AI</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#0f172a,#1e293b,#020617);
+min-height:100vh;
+color:white;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:20px;
+}
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 0;
+}
+
+.logo{
+font-size:30px;
+font-weight:bold;
+}
+
+.hero{
+text-align:center;
+padding:70px 20px;
+}
+
+.hero h1{
+font-size:50px;
+margin-bottom:15px;
+}
+
+.hero p{
+font-size:18px;
+opacity:.8;
+max-width:700px;
+margin:auto;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+margin-top:50px;
+}
+
+.card{
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(10px);
+padding:25px;
+border-radius:20px;
+text-align:center;
+border:1px solid rgba(255,255,255,.1);
+}
+
+.avatar{
+font-size:70px;
+margin-bottom:15px;
+}
+
+button{
+background:#2563eb;
+color:white;
+border:none;
+padding:12px 20px;
+border-radius:10px;
+cursor:pointer;
+}
+
+.chat{
+margin-top:50px;
+background:rgba(255,255,255,.08);
+padding:20px;
+border-radius:20px;
+}
+
+#messages{
+height:300px;
+overflow:auto;
+padding:10px;
+background:rgba(0,0,0,.2);
+border-radius:10px;
+margin-bottom:15px;
+}
+
+.input-box{
+display:flex;
+gap:10px;
+}
+
+input{
+flex:1;
+padding:12px;
+border:none;
+border-radius:10px;
+}
+
+footer{
+text-align:center;
+padding:40px;
+opacity:.6;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+<div class="logo">🤖 Nova AI</div>
+</header>
+
+<section class="hero">
+<h1>Meet Nova AI</h1>
+<p>Your intelligent AI assistant platform powered by modern technology.</p>
+</section>
+
+<section class="cards">
+
+<div class="card">
+<div class="avatar">👨</div>
+<h2>Arman AI</h2>
+<p>Professional and intelligent assistant.</p>
+<button>Select</button>
+</div>
+
+<div class="card">
+<div class="avatar">👩</div>
+<h2>Sara AI</h2>
+<p>Friendly and smart assistant.</p>
+<button>Select</button>
+</div>
+
+</section>
+
+<section class="chat">
+
+<h2>AI Chat</h2>
+
+<div id="messages">
+<p>👋 Welcome to Nova AI.</p>
+</div>
+
+<div class="input-box">
+<input placeholder="Ask anything...">
+<button>Send</button>
+</div>
+
+</section>
+
+<footer>
+Nova AI © 2025
+</footer>
+
+</div>
+
+</body>
+</html>
