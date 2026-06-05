@@ -30,8 +30,8 @@ export default async function handler(req, res) {
       data.candidates?.[0]?.content?.parts?.[0]?.text ||
       "No response from AI";
 
-    res.status(200).json({ reply });
+    return res.status(200).json({ reply });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    return res.status(500).json({ error: error.message });
+  
   }
-      }
