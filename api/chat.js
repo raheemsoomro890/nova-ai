@@ -26,10 +26,12 @@ const response = await fetch(
 
 const data = await response.json();
 
+
+console.log("Gemini Response:", JSON.stringify(data));
+
 const reply =
   data?.candidates?.[0]?.content?.parts?.[0]?.text ||
   "No response from AI";
-
 return res.status(200).json({ reply });
 
 } catch (error) {
