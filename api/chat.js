@@ -15,7 +15,7 @@ module.exports = async function handler(req, res) {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          model: "nvidia/nemotron-3-ultra-253b-v1:free",
+          model: model: "openai/gpt-oss-20b:free",
           messages: [
             {
               role: "system",
