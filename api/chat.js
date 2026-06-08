@@ -15,7 +15,7 @@ module.exports = async function handler(req, res) {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          model: "meta-llama/llama-3.1-8b-instruct:free",
+          model: "nvidia/nemotron-3-ultra-253b-v1:free",
           messages: [
             {
               role: "system",
