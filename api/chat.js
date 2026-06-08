@@ -1,42 +1,49 @@
 module.exports = async function handler(req, res) {
-if (req.method !== "POST") {
-return res.status(405).json({ error: "Method not allowed" });
-}
-
-try {
-const { message } = req.body;
-
-const response = await fetch(
-  "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" +
-  process.env.GEMINI_API_KEY,
-  {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      contents: [
-        {
-          parts: [{ text: message }]
-        }
-      ]
-    })
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Method not allowed" });
   }
-);
 
-const data = await response.json();
+  try {
+    const { message } = req.body;
 
+    const response = await fetch(
+      "https://openrouter.ai/api/v1/chat/completions",
+      {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          model: "deepseek/deepseek-chat-v3-0324:free",
+          messages: [
+            {
+              role: "system",
+              content: "You are Nova AI, a professional, intelligent AI assistant."
+            },
+            {
+              role: "user",
+              content: message
+            }
+          ]
+        })
+      }
+    );
 
-console.log("Gemini Response:", JSON.stringify(data));
+    const data = await response.json();
 
-const reply =
-  data?.candidates?.[0]?.content?.parts?.[0]?.text ||
-  "No response from AI";
-return res.status(200).json({ reply });
+    console.log("OpenRouter Response:", JSON.stringify(data));
 
-} catch (error) {
-return res.status(500).json({
-error: error.message
-});
-}
-}
+    const reply =
+      data?.choices?.[0]?.message?.content ||
+      data?.error?.message ||
+      "No response from AI";
+
+    return res.status(200).json({ reply });
+
+  } catch (error) {
+    return res.status(500).json({
+      error: error.message
+    });
+  }
+};
