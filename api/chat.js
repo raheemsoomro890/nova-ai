@@ -15,7 +15,7 @@ module.exports = async function handler(req, res) {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          model: model: model: "openai/gpt-oss-20b:free",
+          model: "openai/gpt-oss-20b:free",
           messages: [
             {
               role: "system",
