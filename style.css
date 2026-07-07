@@ -299,13 +299,37 @@ box-shadow:0 0 18px rgba(0,229,255,.35);
 }
 
 footer{
+    text-align:center;
+    padding:20px;
+    opacity:.7;
+    font-size:14px;
+}
 
-text-align:center;
+html{
+    scroll-behavior:smooth;
+}
 
-padding:20px;
+@media (max-width:768px){
 
-opacity:.7;
+.hero h1{
+    font-size:32px;
+}
 
-font-size:14px;
+.hero p{
+    font-size:15px;
+}
 
-                }
+.messages{
+    height:55vh;
+}
+
+.input-area input{
+    font-size:15px;
+    padding:14px;
+}
+
+.logo{
+    font-size:24px;
+}
+
+}
