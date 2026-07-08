@@ -1,1 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nova AI v2</title>
+
+<link rel="stylesheet" href="style-v2.css">
+
+</head>
+
+<body>
+
+<div class="app">
+
+<!-- ========================= -->
+<!-- SIDEBAR -->
+<!-- ========================= -->
+
+<aside class="sidebar">
+
+<div class="logo">
+
+🤖 <span>Nova AI</span>
+
+</div>
+
+<button id="newChatBtn" class="new-chat">
+
+＋ New Chat
+
+</button>
+
+<div class="history-title">
+
+Recent Chats
+
+</div>
+
+<div id="chatHistory" class="chat-history">
+
+<!-- Chat list yahan ayegi -->
+
+</div>
+
+</aside>
+
+<!-- ========================= -->
+<!-- MAIN -->
+<!-- ========================= -->
+
+<main class="main">
+
+<header class="topbar">
+
+<div>
+
+<h1>Nova AI</h1>
+
+<p>Your Intelligent AI Assistant</p>
+
+</div>
+
+<div class="status">
+
+🟢 ONLINE
+
+</div>
+
+</header>
+
+  <!-- ========================= -->
+<!-- CHAT WINDOW -->
+<!-- ========================= -->
+
+<section class="chat-container">
+
+<div id="messages" class="messages">
+
+<div class="bot-message">
+
+👋 Welcome to <b>Nova AI</b>
+
+<br><br>
+
+How can I help you today?
+
+</div>
+
+</div>
+
+<!-- ========================= -->
+<!-- INPUT AREA -->
+<!-- ========================= -->
+
+<div class="input-area">
+
+<input
+type="text"
+id="userInput"
+placeholder="Message Nova AI..."
+autocomplete="off">
+
+<button id="sendBtn">
+
+➤
+
+</button>
+
+</div>
+
+</section>
+
+</main>
+
+  <!-- ========================= -->
+<!-- DELETE CHAT MODAL -->
+<!-- ========================= -->
+
+<div id="deleteModal" class="modal">
+
+<div class="modal-box">
+
+<h2>Delete Chat?</h2>
+
+<p>Are you sure you want to delete this conversation?</p>
+
+<div class="modal-buttons">
+
+<button id="cancelDelete">
+Cancel
+</button>
+
+<button id="confirmDelete">
+Delete
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="script-v2.js"></script>
+
+</body>
+</html>
