@@ -291,6 +291,9 @@ cursor:pointer;
 
 transition:.3s;
 
+
+
+margin-bottom:12px;
 }
 
 .input-area button:hover{
@@ -338,3 +341,85 @@ html{
 }
 
 }
+
+
+/* ==========================
+   CHAT TOP BAR
+========================== */
+
+.chat-top{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:15px;
+
+}
+
+/* ==========================
+   NEW CHAT BUTTON
+========================== */
+
+#newChatBtn{
+
+background:linear-gradient(135deg,#00bfff,#0099ff);
+
+color:white;
+
+border:none;
+
+padding:10px 20px;
+
+border-radius:12px;
+
+font-size:15px;
+
+font-weight:600;
+
+cursor:pointer;
+
+transition:.3s;
+
+box-shadow:0 0 12px rgba(0,229,255,.25);
+
+}
+
+#newChatBtn:hover{
+
+background:linear-gradient(135deg,#00e5ff,#00bfff);
+
+transform:translateY(-2px);
+
+box-shadow:0 0 20px rgba(0,229,255,.45);
+
+}
+
+#newChatBtn:active{
+
+transform:scale(.97);
+
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media (max-width:768px){
+
+.chat-top{
+}
+
+#newChatBtn{
+
+width:100%;
+
+font-size:14px;
+
+padding:12px;
+
+}
+
+                }
