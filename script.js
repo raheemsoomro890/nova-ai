@@ -2,80 +2,96 @@ const input = document.getElementById("userInput");
 const sendBtn = document.getElementById("sendBtn");
 const messages = document.getElementById("messages");
 
+// Load saved chat
+window.onload = () => {
+  const savedChat = localStorage.getItem("novaChat");
+
+  if (savedChat) {
+    messages.innerHTML = savedChat;
+    messages.scrollTop = messages.scrollHeight;
+  }
+};
+
+// Save chat
+function saveChat() {
+  localStorage.setItem("novaChat", messages.innerHTML);
+}
+
 async function sendMessage() {
 
-const text = input.value.trim();
+  const text = input.value.trim();
 
-if (!text) return;
+  if (!text) return;
 
-messages.innerHTML += `
+  messages.innerHTML += `
 <div class="user-message">
 ${text}
 </div>
 `;
 
-input.value = "";
+  input.value = "";
 
-messages.scrollTop = messages.scrollHeight;
+  saveChat();
 
-messages.innerHTML += `
+  messages.scrollTop = messages.scrollHeight;
+
+  messages.innerHTML += `
 <div class="bot-message" id="typing">
 🤖 Nova AI is thinking...
 </div>
 `;
 
-messages.scrollTop = messages.scrollHeight;
+  messages.scrollTop = messages.scrollHeight;
 
-try{
+  try {
 
-const response = await fetch("/api/chat",{
+    const response = await fetch("/api/chat", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        message: text
+      })
+    });
 
-method:"POST",
+    const data = await response.json();
 
-headers:{
-"Content-Type":"application/json"
-},
+    document.getElementById("typing").remove();
 
-body:JSON.stringify({
-message:text
-})
-
-});
-
-const data = await response.json();
-
-document.getElementById("typing").remove();
-
-messages.innerHTML += `
+    messages.innerHTML += `
 <div class="bot-message">
 ${(data.reply || data.error).replace(/\n/g,"<br>")}
 </div>
 `;
 
-messages.scrollTop = messages.scrollHeight;
+    saveChat();
 
-}catch(error){
+    messages.scrollTop = messages.scrollHeight;
 
-document.getElementById("typing").remove();
+  } catch (error) {
 
-messages.innerHTML += `
+    document.getElementById("typing").remove();
+
+    messages.innerHTML += `
 <div class="bot-message">
 ❌ Error connecting to Nova AI.
 </div>
 `;
 
-}
+    saveChat();
+  }
 
 }
 
-sendBtn.addEventListener("click",sendMessage);
+sendBtn.addEventListener("click", sendMessage);
 
-input.addEventListener("keypress",(e)=>{
+input.addEventListener("keypress", (e) => {
 
-if(e.key==="Enter"){
+  if (e.key === "Enter") {
 
-sendMessage();
+    sendMessage();
 
-}
+  }
 
 });
