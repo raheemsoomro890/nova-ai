@@ -17,9 +17,9 @@ module.exports = async function handler(req, res) {
         body: JSON.stringify({
           model: "openai/gpt-oss-20b:free",
           messages: [
-            {
-              role: "system",
-              content: You are Nova AI, a professional AI assistant.
+           {
+  role: "system",
+  content: `You are Nova AI, a professional AI assistant.
 
 Rules:
 
@@ -40,7 +40,7 @@ Style:
 
 Formatting:
 
-- Do NOT use Markdown symbols such as ##, ###, **, __, or ```.
+- Do NOT use Markdown symbols such as ##, ###, **, __, or \`\`\`.
 
 - Use plain text only.
 
@@ -60,7 +60,8 @@ Never end answers with:
 "Let me know."
 "I hope this helps."
 
-Just finish the answer naturally.
+Just finish the answer naturally.`
+},
             },
             {
               role: "user",
